@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     
-     steps: 
+    steps: 
      - uses : actions/checkout@v4
-     - name: "Deploying to DockerHub"
      - run : docker build . -t lucifer1503/next-js-app:latest
      - run : echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u {{secrets.DOCEKRHUB_USERNAME}} --password-stdin
      - run : docker push lucifer1503/next-js-app:latest
